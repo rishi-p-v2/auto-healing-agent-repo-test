@@ -1,0 +1,69 @@
+{
+  "_metadata": {
+    "module": "Product",
+    "generatedFrom": "manual-tests/BStackDemo_Manual_Test_Cases.csv",
+    "generatedDate": "2026-06-04",
+    "testCaseCount": 8
+  },
+  "validScenarios": [
+    {
+      "testId": "TC_PROD_001",
+      "description": "View all products on home page",
+      "priority": "High",
+      "action": "view_products",
+      "expectedResult": "products_visible"
+    },
+    {
+      "testId": "TC_PROD_002",
+      "description": "Apply Apple vendor filter",
+      "priority": "High",
+      "filter": "Apple",
+      "expectedProductCount": 9
+    },
+    {
+      "testId": "TC_PROD_003",
+      "description": "Sort products by lowest price",
+      "priority": "High",
+      "sortOption": "lowestprice",
+      "expectedResult": "ascending_order"
+    },
+    {
+      "testId": "TC_PROD_004",
+      "description": "Add product to cart",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "productIndex": 1,
+      "expectedResult": "cart_updated"
+    },
+    {
+      "testId": "TC_PROD_005",
+      "description": "Add multiple products to cart",
+      "priority": "Medium",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "productIndices": [1, 2],
+      "expectedCartCount": 2
+    }
+  ],
+  "invalidScenarios": [
+    {
+      "testId": "TC_PROD_100",
+      "description": "Filter products with no matching results",
+      "priority": "Medium",
+      "filter": "nonexistent_brand",
+      "expectedProductCount": 0,
+      "expectedError": "No products found"
+    }
+  ],
+  "boundaryTests": [
+    {
+      "testId": "TC_PROD_300",
+      "description": "Verify product price values are numeric",
+      "priority": "Low",
+      "action": "verify_prices",
+      "expectedResult": "all_numeric"
+    }
+  ],
+  "securityTests": []
+}

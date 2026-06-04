@@ -1,0 +1,23 @@
+{
+  "name": "bstackdemo-playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright UI automation for BStackDemo (https://bstackdemo.com)",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:auth": "npx playwright test tests/auth.spec.ts",
+    "test:product": "npx playwright test tests/product.spec.ts",
+    "test:checkout": "npx playwright test tests/checkout.spec.ts",
+    "test:e2e": "npx playwright test tests/e2e.spec.ts",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression",
+    "report": "npx playwright show-report reports/playwright-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.3.1",
+    "typescript": "^5.3.0"
+  }
+}

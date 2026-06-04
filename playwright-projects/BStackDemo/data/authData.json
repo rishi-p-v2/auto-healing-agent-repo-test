@@ -1,0 +1,111 @@
+{
+  "_metadata": {
+    "module": "Authentication",
+    "generatedFrom": "manual-tests/BStackDemo_Manual_Test_Cases.csv",
+    "generatedDate": "2026-06-04",
+    "testCaseCount": 12
+  },
+  "validScenarios": [
+    {
+      "testId": "TC_AUTH_001",
+      "description": "Login with valid credentials (fav_user)",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "expectedResult": "success",
+      "expectedUsername": "fav_user"
+    },
+    {
+      "testId": "TC_AUTH_002",
+      "description": "Login with existing orders user",
+      "priority": "High",
+      "username": "existing_orders_user",
+      "password": "testingisfun99",
+      "expectedResult": "success",
+      "expectedOrderCount": 10
+    },
+    {
+      "testId": "TC_AUTH_003",
+      "description": "Login with image_not_loading_user",
+      "priority": "Medium",
+      "username": "image_not_loading_user",
+      "password": "testingisfun99",
+      "expectedResult": "success",
+      "expectedImageSrc": ""
+    },
+    {
+      "testId": "TC_AUTH_004",
+      "description": "Navigate to Sign In page from home",
+      "priority": "Medium",
+      "action": "click_signin",
+      "expectedResult": "login_form_visible"
+    },
+    {
+      "testId": "TC_AUTH_005",
+      "description": "Verify login form elements are present",
+      "priority": "Low",
+      "action": "verify_form",
+      "expectedResult": "all_fields_visible"
+    }
+  ],
+  "invalidScenarios": [
+    {
+      "testId": "TC_AUTH_100",
+      "description": "Login with locked user account",
+      "priority": "High",
+      "username": "locked_user",
+      "password": "testingisfun99",
+      "expectedError": "Your account has been locked."
+    },
+    {
+      "testId": "TC_AUTH_101",
+      "description": "Login with invalid username",
+      "priority": "High",
+      "username": "invalid_user_xyz",
+      "password": "testingisfun99",
+      "expectedError": "Invalid credentials"
+    },
+    {
+      "testId": "TC_AUTH_102",
+      "description": "Login with wrong password",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "wrongpassword",
+      "expectedError": "Invalid credentials"
+    }
+  ],
+  "emptyFieldTests": [
+    {
+      "testId": "TC_AUTH_200",
+      "description": "Login with empty username",
+      "username": "",
+      "password": "testingisfun99",
+      "expectedError": "username is required"
+    },
+    {
+      "testId": "TC_AUTH_201",
+      "description": "Login with empty password",
+      "username": "fav_user",
+      "password": "",
+      "expectedError": "password is required"
+    }
+  ],
+  "securityTests": [
+    {
+      "testId": "TC_AUTH_400",
+      "description": "XSS injection in username field",
+      "payload": "<script>alert('xss')</script>",
+      "targetField": "username",
+      "category": "xss",
+      "expectedBehavior": "reject_gracefully"
+    },
+    {
+      "testId": "TC_AUTH_401",
+      "description": "SQL injection in username field",
+      "payload": "' OR '1'='1' --",
+      "targetField": "username",
+      "category": "sql_injection",
+      "expectedBehavior": "reject_gracefully"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "_metadata": {
+    "module": "Checkout",
+    "generatedFrom": "manual-tests/BStackDemo_Manual_Test_Cases.csv",
+    "generatedDate": "2026-06-04",
+    "testCaseCount": 10
+  },
+  "validScenarios": [
+    {
+      "testId": "TC_CHKOUT_001",
+      "description": "Complete checkout with valid shipping details",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "123 Main St",
+      "province": "California",
+      "postCode": "90210",
+      "expectedResult": "order_placed"
+    },
+    {
+      "testId": "TC_CHKOUT_002",
+      "description": "Verify checkout form fields are present",
+      "priority": "Medium",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "expectedResult": "form_visible"
+    },
+    {
+      "testId": "TC_CHKOUT_003",
+      "description": "Complete full E2E purchase flow",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "firstName": "first",
+      "lastName": "last",
+      "address": "address",
+      "province": "province",
+      "postCode": "pincode",
+      "expectedOrderCount": 2
+    }
+  ],
+  "invalidScenarios": [
+    {
+      "testId": "TC_CHKOUT_100",
+      "description": "Submit checkout with empty first name",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "firstName": "",
+      "lastName": "Doe",
+      "address": "123 Main St",
+      "province": "CA",
+      "postCode": "90210",
+      "expectedError": "First Name is required"
+    },
+    {
+      "testId": "TC_CHKOUT_101",
+      "description": "Submit checkout with empty address",
+      "priority": "High",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "",
+      "province": "CA",
+      "postCode": "90210",
+      "expectedError": "Address is required"
+    }
+  ],
+  "emptyFieldTests": [
+    {
+      "testId": "TC_CHKOUT_200",
+      "description": "Submit checkout with all fields empty",
+      "username": "fav_user",
+      "password": "testingisfun99",
+      "firstName": "",
+      "lastName": "",
+      "address": "",
+      "province": "",
+      "postCode": "",
+      "expectedError": "required fields"
+    }
+  ],
+  "boundaryTests": [
+    {
+      "testId": "TC_CHKOUT_300",
+      "description": "Post code with maximum characters",
+      "postCode": "123456789012345",
+      "expectedResult": "boundary_handled"
+    },
+    {
+      "testId": "TC_CHKOUT_301",
+      "description": "Special characters in first name",
+      "firstName": "O'Brien-Smith",
+      "expectedResult": "accepted_or_validated"
+    }
+  ],
+  "securityTests": []
+}
