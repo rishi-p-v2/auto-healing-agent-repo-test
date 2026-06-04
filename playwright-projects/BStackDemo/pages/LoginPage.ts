@@ -12,7 +12,7 @@ export class LoginPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    this.signinButton = page.locator('#signin, [data-testid="signin"], button:has-text("Sign In")');
+    this.signinButton = page.locator('#sign-in, [data-testid="sign-in"], button:has-text("Sign In")');
     this.usernameInput = page.locator('#react-select-2-input, [data-testid="username"], input[aria-label*="username" i]');
     this.passwordInput = page.locator('#react-select-3-input, [data-testid="password"], input[aria-label*="password" i]');
     this.loginButton = page.locator('#login-btn, [data-testid="login-btn"], button:has-text("Log In")');
