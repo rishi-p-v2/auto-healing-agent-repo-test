@@ -51,7 +51,7 @@ test.describe('Orders & Offers - BStackDemo', () => {
 
     test('TC_OFF_002: Navigate to Offers page is successful', async ({ page }) => {
       await loginPage.login('fav_user', 'testingisfun99');
-      const offersLink = page.locator('text=Offers');
+      const offersLink = page.locator('a[href="/offers"]').first();
       await expect(offersLink).toBeVisible();
       await offersLink.click();
       await page.waitForLoadState('networkidle');
